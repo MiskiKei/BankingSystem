@@ -5,8 +5,8 @@ public class Driver {
         Account aliceChecking = new CheckingAccount("Alice", 1000.0, 1.0);  // 1.0% interest rate for checking account
         Account bobSavings = new SavingsAccount("Bob", 500.0, 2.0, 100.0);  // 2.0% interest rate for savings account
 
-        bank.addAccount(aliceChecking);
-        bank.addAccount(bobSavings);
+        bank.addBankAccount(aliceChecking);
+        bank.addBankAccount(bobSavings);
 
         System.out.println("Initial account details:");
         bank.printAccountDetails();
@@ -22,7 +22,7 @@ public class Driver {
 
         System.out.println();
 
-        bank.processInterest();
+        bank.processInterestAmount();
 
         System.out.println();
 

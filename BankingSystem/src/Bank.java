@@ -8,7 +8,7 @@ public class Bank {
         this.accounts = new ArrayList<>();
     }
 
-    public void addAccount(Account account) {
+    public void addBankAccount(Account account) {
         if (account != null) {
             if (!accounts.contains(account)) {
                 accounts.add(account);
@@ -21,7 +21,7 @@ public class Bank {
         }
     }
 
-    public void processInterest() {
+    public void processInterestAmount() {
         for (Account account : accounts) {
             account.calculateInterest();
         }
@@ -35,10 +35,10 @@ public class Bank {
         System.out.println("Account details printed.");
     }
     
-    public Account checkingAccount(String accountHolder, double initialBalance) {
+    public Account createCheckingAccount(String accountHolder, double initialBalance) {
         if (accountHolder != null && !accountHolder.isEmpty() && initialBalance >= 0) {
             Account checkingAccount = new CheckingAccount(accountHolder, initialBalance, 1.0);
-            addAccount(checkingAccount);
+            addBankAccount(checkingAccount);
             return checkingAccount;
         } else {
             System.out.println("Invalid parameters for creating a checking account.");
@@ -46,10 +46,10 @@ public class Bank {
         }
     }
 
-    public Account savingsAccount(String accountHolder, double initialBalance) {
+    public Account createSavingsAccount(String accountHolder, double initialBalance) {
         if (accountHolder != null && !accountHolder.isEmpty() && initialBalance >= 0) {
             Account savingsAccount = new SavingsAccount(accountHolder, initialBalance, 2.0, 100.0);
-            addAccount(savingsAccount);
+            addBankAccount(savingsAccount);
             return savingsAccount;
         } else {
             System.out.println("Invalid parameters for creating a savings account.");

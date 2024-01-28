@@ -24,7 +24,7 @@ public abstract class Account {
         }
     }
 
-    public void deposit(double amount) {
+    public void depositMoney(double amount) {
         if (amount > 0) {
             performDepositTransaction(amount);
             System.out.println("Deposit of $" + amount + " processed for " + getAccountHolder());
@@ -38,7 +38,7 @@ public abstract class Account {
 		transactions.add(new Transaction("Deposit", amount));
 	}
 
-    public boolean withdraw(double amount) {
+    public boolean withdrawMoney(double amount) {
         if (amount > 0) {
             if (balance + getOverdraftLimit() >= amount) { 
                 balance -= amount;
@@ -57,7 +57,7 @@ public abstract class Account {
     }
 
     public void calculateInterest() {
-        deposit(balance * (interestRate / 100));
+        depositMoney(balance * (interestRate / 100));
         transactions.add(new Transaction("Interest", balance * (interestRate / 100)));
         System.out.println("Interest calculated and deposited for " + getAccountHolder());
     }
@@ -69,7 +69,7 @@ public abstract class Account {
 
     @Override
     public String toString() {
-        return "[Account] Account Holder: " + getAccountHolder() +
+        return "Account Holder: " + getAccountHolder() +
                 ", Balance: $" + balance +
                 ", Interest Rate: " + interestRate + "%" +
                 ", Transactions: " + transactions;
@@ -77,8 +77,8 @@ public abstract class Account {
 
 	public void transferMoney(Account targetAccount, double amount) {
 		if (targetAccount != null && amount > 0) {
-	        if (withdraw(amount)) {
-	            targetAccount.deposit(amount);
+	        if (withdrawMoney(amount)) {
+	            targetAccount.depositMoney(amount);
 	            System.out.println("Transfer successful: $" + amount + " transferred from "
 	                    + getAccountHolder() + " to " + targetAccount.getAccountHolder());
 	        } else {

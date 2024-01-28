@@ -12,7 +12,7 @@ public class SavingsAccount extends Account {
     }
 
     @Override
-    public boolean withdraw(double amount) {
+    public boolean withdrawMoney(double amount) {
         if (balance - amount >= minimumBalance) {
             balance -= amount;
             transactions.add(new Transaction("Withdrawal", amount));
