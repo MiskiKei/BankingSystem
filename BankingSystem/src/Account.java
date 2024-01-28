@@ -26,13 +26,17 @@ public abstract class Account {
 
     public void deposit(double amount) {
         if (amount > 0) {
-            balance += amount;
-            transactions.add(new Transaction("Deposit", amount));
+            performDepositTransaction(amount);
             System.out.println("Deposit of $" + amount + " processed for " + getAccountHolder());
         } else {
             System.out.println("Invalid deposit amount for " + getAccountHolder());
         }
     }
+
+	private void performDepositTransaction(double amount) {
+		balance += amount;
+		transactions.add(new Transaction("Deposit", amount));
+	}
 
     public boolean withdraw(double amount) {
         if (amount > 0) {
