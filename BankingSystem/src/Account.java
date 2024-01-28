@@ -57,9 +57,8 @@ public abstract class Account {
     }
 
     public void calculateInterest() {
-        double interest = balance * (interestRate / 100);
-        deposit(interest);
-        transactions.add(new Transaction("Interest", interest));
+        deposit(balance * (interestRate / 100));
+        transactions.add(new Transaction("Interest", balance * (interestRate / 100)));
         System.out.println("Interest calculated and deposited for " + getAccountHolder());
     }
     
