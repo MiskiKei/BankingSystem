@@ -20,7 +20,7 @@ public class Driver {
         System.out.println();
 
         // Transfer money between accounts
-        bank.transferMoney(aliceChecking, bobSavings, 200.0);
+        aliceChecking.transferMoney(bobSavings, 200.0);
         aliceChecking.logTransaction("Transfer Out", 200.0);
         bobSavings.logTransaction("Transfer In", 200.0);
 

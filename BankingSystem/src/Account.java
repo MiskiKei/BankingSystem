@@ -72,5 +72,19 @@ public abstract class Account {
                 ", Interest Rate: " + interestRate + "%" +
                 ", Transactions: " + transactions;
     }
+
+	public void transferMoney(Account targetAccount, double amount) {
+	    if (this != null && targetAccount != null && amount > 0) {
+	        if (withdraw(amount)) {
+	            targetAccount.deposit(amount);
+	            System.out.println("Transfer successful: $" + amount + " transferred from "
+	                    + getAccountHolder() + " to " + targetAccount.getAccountHolder());
+	        } else {
+	            System.out.println("Transfer failed. Insufficient funds in the source account.");
+	        }
+	    } else {
+	        System.out.println("Invalid parameters for transfer.");
+	    }
+	}
 }
 

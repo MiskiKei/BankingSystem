@@ -21,20 +21,6 @@ public class Bank {
         }
     }
 
-    public void transferMoney(Account sourceAccount, Account targetAccount, double amount) {
-        if (sourceAccount != null && targetAccount != null && amount > 0) {
-            if (sourceAccount.withdraw(amount)) {
-                targetAccount.deposit(amount);
-                System.out.println("Transfer successful: $" + amount + " transferred from "
-                        + sourceAccount.getAccountHolder() + " to " + targetAccount.getAccountHolder());
-            } else {
-                System.out.println("Transfer failed. Insufficient funds in the source account.");
-            }
-        } else {
-            System.out.println("Invalid parameters for transfer.");
-        }
-    }
-
     public void processInterest() {
         for (Account account : accounts) {
             account.calculateInterest();
