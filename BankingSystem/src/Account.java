@@ -40,7 +40,7 @@ public abstract class Account {
 
     public boolean withdraw(double amount) {
         if (amount > 0) {
-            if (balance + getOverdraftLimit() >= amount) { // Check if there are sufficient funds, including overdraft limit
+            if (balance + getOverdraftLimit() >= amount) { 
                 balance -= amount;
                 transactions.add(new Transaction("Withdrawal", amount));
                 System.out.println("Withdrawal of $" + amount + " processed for " + getAccountHolder());
@@ -65,10 +65,9 @@ public abstract class Account {
     
     public void logTransaction(String transactionType, double amount) { 
         transactions.add(new Transaction(transactionType, amount));
-        System.out.println("Transaction logged: Type: " + transactionType + ", Amount: $" + amount);
+        System.out.println("Transaction logged - Type: " + transactionType + ", Amount: $" + amount);
     }
 
-    // Override toString method to provide a string representation of the account
     @Override
     public String toString() {
         return "[Account] Account Holder: " + getAccountHolder() +
@@ -78,7 +77,7 @@ public abstract class Account {
     }
 
 	public void transferMoney(Account targetAccount, double amount) {
-	    if (this != null && targetAccount != null && amount > 0) {
+		if (targetAccount != null && amount > 0) {
 	        if (withdraw(amount)) {
 	            targetAccount.deposit(amount);
 	            System.out.println("Transfer successful: $" + amount + " transferred from "

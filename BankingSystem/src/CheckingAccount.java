@@ -4,7 +4,7 @@ public class CheckingAccount extends Account {
     }
 
     @Override
-    public double getOverdraftLimit() { //Set overdraft limit for checking
+    public double getOverdraftLimit() { 
         return 500.0;
     }
 

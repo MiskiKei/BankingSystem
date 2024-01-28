@@ -5,7 +5,6 @@ public class Driver {
         Account aliceChecking = new CheckingAccount("Alice", 1000.0, 1.0);  // 1.0% interest rate for checking account
         Account bobSavings = new SavingsAccount("Bob", 500.0, 2.0, 100.0);  // 2.0% interest rate for savings account
 
-        // Add accounts to the bank
         bank.addAccount(aliceChecking);
         bank.addAccount(bobSavings);
 
@@ -15,14 +14,11 @@ public class Driver {
         System.out.println();
 
         aliceChecking.logTransaction("Purchase", 150.0);
-        bobSavings.logTransaction("Deposit", 150.0);  // Log a transaction for Bob as well
+        bobSavings.logTransaction("Deposit", 150.0);  
 
         System.out.println();
-
-        // Transfer money between accounts
-        aliceChecking.transferMoney(bobSavings, 200.0);
-        aliceChecking.logTransaction("Transfer Out", 200.0);
-        bobSavings.logTransaction("Transfer In", 200.0);
+      
+        aliceChecking.transferMoney(bobSavings, 200.0);;
 
         System.out.println();
 

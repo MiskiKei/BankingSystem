@@ -7,7 +7,7 @@ public class SavingsAccount extends Account {
     }
 
     @Override
-    public double getOverdraftLimit() { //Set overdraft limit for savings
+    public double getOverdraftLimit() { 
         return 0.0;
     }
 
